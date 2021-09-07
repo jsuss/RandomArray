@@ -11,7 +11,7 @@ namespace RandomArray
             int[] array = new int[arraySize];
             
             array = fillArray(array, arraySize);
-            array = replaceRandomValue(array, arraySize);
+            array = replaceArrayValue(array, arraySize);
             printArray(array);
 
             Array.Sort(array);
@@ -40,6 +40,11 @@ namespace RandomArray
             for(int i = 0; i < total; i++)
                 array[i] = i + 1;
 
+            return shuffleArray(array);
+        }
+
+        public static int[] shuffleArray(int[] array)
+        {
             Random random = new Random();
             array = array.OrderBy(x => random.Next()).ToArray();
             return array;
@@ -52,7 +57,7 @@ namespace RandomArray
             Console.WriteLine();
         }
 
-        public static int[] replaceRandomValue(int[] array, int total)
+        public static int[] replaceArrayValue(int[] array, int total)
         {
             array[chooseRandomIndex(total)] = 0;
             return array;
