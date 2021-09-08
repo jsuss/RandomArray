@@ -55,7 +55,7 @@ namespace RandomArray
             return expectedArraySum - actualArraySum;
         }
 
-        //Populeate the values in the array start at 1 and ending at the given array size
+        //Populate the values in the array starting at 1 and ending at the given array size
         public static int[] fillArray(int[] array, int arraySize)
         {
             for(int i = 0; i < arraySize; i++)
@@ -64,7 +64,7 @@ namespace RandomArray
             return shuffleArray(array);
         }
 
-        //Shuffle the order of the values in the array
+        //Shuffle the order of the values in the array (to meet the question requirements)
         public static int[] shuffleArray(int[] array)
         {
             Random random = new Random();
@@ -72,7 +72,7 @@ namespace RandomArray
             return array;
         }
 
-        //Print out the values in the array in a single line
+        //Print out the values in the array on a single line
         public static void printArray(int[] array)
         {
             foreach (int number in array)
@@ -80,7 +80,7 @@ namespace RandomArray
             Console.WriteLine();
         }
 
-        //Replace a value in the array with a 0
+        //Replace a value in the array with the number 0
         public static int[] replaceArrayValue(int[] array, int arraySize)
         {
             array[chooseRandomIndex(arraySize)] = 0;
