@@ -12,9 +12,12 @@ namespace RandomArray
     {
         static void Main(string[] args)
         {
-            int arraySize = 50;
-            int[] array = new int[arraySize];
+            Console.Write($"The lost string was: {solver()}");
+
+            //int arraySize = 50;
+            //int[] array = new int[arraySize];
             
+
             //Populate array from numbers 1 to given arraySize
             array = fillArray(array, arraySize);
 
@@ -28,21 +31,50 @@ namespace RandomArray
             printArray(array);
             Array.Sort(array);
             printArray(array);       
+
         }
 
         //Test Data
-        public static Dictionary<int[],int[]> IArrays()
+        public static Dictionary<string,int[]> IArrays()
         {
-            int[] array1 = new int[] { 1,2,3,4,5};
+            int[] array1 = new int[] { 1, 2, 3, 4, 5};
             int[] array2 = new int[] { 1, 2, 3, 0, 5 };
-            Dictionary<int[], int[]> returnDictionary = new Dictionary<int[], int[]>();
-            returnDictionary.Add(array1, array2);
+            Dictionary<string, int[]> returnDictionary = new Dictionary<string, int[]>();
+            returnDictionary.Add("ar1", array1);
+            returnDictionary.Add("ar2", array2);
+
             return returnDictionary;
         }
+
+
+        public static string solver()
+        {
+            Dictionary<string, int[]> testArrays = IArrays();
+
+            string theLostStringOfAtlantis = "lost to the depths.";
+            for (int i = 0; i < testArrays["ar2"].Length; i++)
+            {
+                if (testArrays["ar2"][i] == 0)
+                {
+                    theLostStringOfAtlantis = $"{ testArrays["ar1"][i].ToString()}.";
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            return theLostStringOfAtlantis;
+        }
+
+
+
+        
         
         //Solution 1
         //Find the missing value in the array by calculating the difference in actual vs expected array sums
         public static int calculateMissingValue(int[] array)
+
         {
             int expectedArraySum = 0;
             for (int i = array.Length; i > 0; i--)
